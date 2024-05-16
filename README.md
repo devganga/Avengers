@@ -39,6 +39,22 @@ Create a new query:
 dotnet new ca-usecase -n GetTodos -fn TodoLists -ut query -rt TodosVm
 ```
 
+## examples
+
+
+For example QuoteItem, to add a new migration from the root folder: 
+
+dotnet ef migrations add "QuotesMigration" --project src\Infrastructure --startup-project src\Web --output-dir Data\Migrations
+
+
+You can create use cases (commands or queries) by navigating to ./src/Application and running dotnet new ca-usecase. Here are some examples:
+
+dotnet new ca-usecase --name CreateQuoteItem --feature-name QuoteItems --usecase-type command --return-type int
+dotnet new ca-usecase --name UpdateQuoteItem --feature-name QuoteItems --usecase-type command --return-type int
+dotnet new ca-usecase --name DeleteQuoteItem --feature-name QuoteItems --usecase-type command --return-type int
+dotnet new ca-usecase -n GetQuotes -fn QuoteItems -ut query -rt QuotesVm
+
+
 If you encounter the error *"No templates or subcommands found matching: 'ca-usecase'."*, install the template and try again:
 
 ```bash
